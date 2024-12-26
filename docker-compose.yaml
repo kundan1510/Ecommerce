@@ -1,0 +1,29 @@
+services:
+  ocelotapigateway:
+    image: ${DOCKER_REGISTRY-}ocelotapigateway
+    build:
+      context: .
+      dockerfile: OcelotAPIGateway/Dockerfile
+    ports:
+     - "7132:8080"
+  cartservice:
+    image: ${DOCKER_REGISTRY-}cartservice
+    build:
+      context: .
+      dockerfile: CartService/Dockerfile
+    ports:
+     - "7206:8080"
+  productservice:
+    image: ${DOCKER_REGISTRY-}productservice
+    build:
+      context: .
+      dockerfile: ProductService/Dockerfile
+    ports:
+     - "7081:8080"
+  notificationservice:
+    image: ${DOCKER_REGISTRY-}notificationservice
+    build:
+      context: .
+      dockerfile: NotificationService/Dockerfile
+    ports:
+     - "7141:8080"
